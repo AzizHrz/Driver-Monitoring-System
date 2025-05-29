@@ -1,0 +1,28 @@
+  File "/home/carta/Desktop/projects/New/Aziz/testFirebase.py", line 12, in <module>
+    ref_emo.set("Hello")
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/firebase_admin/db.py", line 264, in set
+    self._client.request('put', self._add_suffix(), json=value, params='print=silent')
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/firebase_admin/db.py", line 929, in request
+    return super(_Client, self).request(method, url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/firebase_admin/_http_client.py", line 123, in request
+    resp = self._session.request(method, self.base_url + url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/auth/transport/requests.py", line 535, in request
+    self.credentials.before_request(auth_request, method, url, request_headers)
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/auth/credentials.py", line 239, in before_request
+    self._blocking_refresh(request)
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/auth/credentials.py", line 202, in _blocking_refresh
+    self.refresh(request)
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/oauth2/service_account.py", line 448, in refresh
+    access_token, expiry, _ = _client.jwt_grant(
+                              ^^^^^^^^^^^^^^^^^^
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/oauth2/_client.py", line 299, in jwt_grant
+    response_data = _token_endpoint_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/oauth2/_client.py", line 270, in _token_endpoint_request
+    _handle_error_response(response_data, retryable_error)
+  File "/home/carta/Desktop/projects/New/env/lib/python3.11/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+
