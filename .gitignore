@@ -1,0 +1,23 @@
+# Credentials — NEVER commit these
+serviceAccountKey.json
+ 
+# Owner photos — personal data
+owner*.jpeg
+owner*.jpg
+ 
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+ 
+# Model weights already tracked explicitly
+# eye_state_model.h5  ← keep tracked (it's in the repo)
+ 
+# OS
+.DS_Store
+Thumbs.db
+ 
+# Docker
+
+#
+core.*
