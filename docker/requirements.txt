@@ -1,0 +1,8 @@
+opencv-python-headless==4.9.0.80
+numpy==1.26.4
+deepface==0.0.91
+tensorflow==2.15.0
+tf_keras==2.15.0
+requests==2.31.0
+firebase-admin==6.5.0
+dlib==19.24.4

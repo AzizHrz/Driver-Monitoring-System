@@ -1,0 +1,31 @@
+FROM python:3.11-slim-bookworm
+
+# System dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    libopenblas-dev \
+    liblapack-dev \
+    libx11-dev \
+    libgl1 \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 \
+    git \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy requirements first for layer caching
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy all project files
+COPY . .
+
+# Download DeepFace FaceNet model on build (avoids runtime download)
+RUN python -c "from deepface import DeepFace; DeepFace.build_model('Facenet')"
+
+CMD ["python", "main.py"]
