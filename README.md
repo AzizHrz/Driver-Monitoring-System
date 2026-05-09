@@ -84,28 +84,36 @@ The core insight: `picamera2`, `gpiozero`, and `libcamera` are compiled against 
 ```
 Driver-Monitoring-System/
 │
-├── 📄 config.py              # Single source of truth for all constants
-├── 📄 bridge.py              # HOST: camera stream + GPIO control
-├── 📄 main.py                # CONTAINER: AI pipeline + browser stream
-├── 📄 connect.py             # Cloud: Firebase + ThingSpeak
-├── 📄 test_hardware.py       # Standalone GPIO hardware test
+├── host/                    ← runs on Pi HOST (Python 3.13, no Docker)
+│   ├── bridge.py
+│   ├── LCD.py
+│   ├── buzzer.py
+│   └── test_hardware.py
 │
-├── 📄 main_pc.py             # PC development mock (USB webcam, stub GPIO)
-├── 📄 Dockerfile.pi          # ARM64 container image for Raspberry Pi
-├── 📄 Dockerfile.pc          # x86_64 container image for PC development
-├── 📄 requirements_pi.txt    # Pi container dependencies
-├── 📄 requirements.txt       # PC container dependencies
+├── container/               ← runs INSIDE Docker container (Python 3.11)
+│   ├── main.py
+│   ├── debugmain.py
+│   ├── connect.py
+│   └── config.py
 │
-├── 📄 LCD.py                 # I²C LCD driver (host)
-├── 📄 buzzer.py              # Buzzer wrapper (host)
-├── 📄 connect.py             # Firebase + ThingSpeak
+├── pc/                      ← PC development mock (no Pi hardware)
+│   ├── main_pc.py
+│   └── Dockerfile.pc
 │
-├── 🤖 eye_state_model.h5     # Trained Keras eye-state classifier
-├── 📦 embeddings.txt         # Pre-computed owner face embeddings
-├── 🗂  haarcascade_frontalface_default.xml
-└── 🗂  shape_predictor_68_face_landmarks.dat
+├── docker/                  ← Docker build files
+│   ├── Dockerfile.pi
+│   └── requirements_pi.txt
+│   └── requirements.txt
+│
+├── models/                  ← AI models and data files
+│   ├── eye_state_model.h5
+│   ├── embeddings.txt
+│   ├── haarcascade_frontalface_default.xml
+│   └── shape_predictor_68_face_landmarks.dat
+│
+├── .gitignore
+└── README.md
 ```
-
 ---
 
 ## Quick start — build directly on the Pi
