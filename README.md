@@ -9,6 +9,20 @@
 
 ---
 
+## Architecture Overview
+
+![Driver Monitoring System — Edge AI & Containerized Architecture](assets/architecture.png)
+
+---
+
+## Live Demo
+
+[![Watch the demo](assets/architecture.png)](https://youtu.be/Ef6nJlydGzo)
+
+> Click the image to watch the full system demo on YouTube.
+
+---
+
 ## Table of Contents
 
 - [What changed in v2.0](#what-changed-in-v20)
