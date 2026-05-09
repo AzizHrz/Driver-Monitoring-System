@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[![Watch the demo](assets/architecture.png)](https://youtu.be/Ef6nJlydGzo)
+[![Watch the demo](assets/DROWSY.png)](https://youtu.be/Ef6nJlydGzo)
 
 > Click the image to watch the full system demo on YouTube.
 
